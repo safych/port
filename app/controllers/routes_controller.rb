@@ -1,10 +1,10 @@
 class RoutesController < ApplicationController
-  def index
+  def new
 
   end
 
   def create
-
+    redirect_to routes_path
   end
 
   def edit

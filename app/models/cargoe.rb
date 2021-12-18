@@ -1,0 +1,3 @@
+class Cargoe < ApplicationRecord
+
+end

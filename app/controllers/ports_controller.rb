@@ -1,10 +1,10 @@
 class PortsController < ApplicationController
-  def index
+  def new
 
   end
 
   def create
-
+    redirect_to ports_path
   end
 
   def edit

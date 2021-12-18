@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to 'Гловна', "../" %>
+      <%= link_to 'Вантажі', "../cargoes/" %>
+      <%= link_to 'Порти', "../ports/" %>
+      <%= link_to "Маршрути", "../routes/" %>
+      <%= link_to "Кораблі", "../ships/" %>
+    </header>
     <%= yield %>
   </body>
 </html>

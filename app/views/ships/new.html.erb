@@ -1,0 +1,12 @@
+<div class="page">
+  <center><h1>Введіть данні про корабель</h1></center>
+  <%= form_for :ship, url: ships_path do |f| %>
+    <%= f.label :reg_number, "Реєстраційний номер" %>
+    <div><%= f.number_field :reg_number %></div>
+    <%= f.label :name, "Назва корабля" %>
+    <div><%= f.text_field :name %></div>
+    <%= f.label :load_capacity, "Вантажопідйомність" %>
+    <div><%= f.number_field :load_capacity %></div>
+    <div><%= f.submit "Додати" %></div>
+  <% end %>
+</div>

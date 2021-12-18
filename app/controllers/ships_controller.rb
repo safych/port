@@ -1,10 +1,10 @@
 class ShipsController < ApplicationController
-  def index
+  def new
 
   end
 
   def create
-
+    redirect_to ships_path
   end
 
   def edit
@@ -19,7 +19,4 @@ class ShipsController < ApplicationController
 
   end
 
-  def cargoe_params
-
-  end
 end

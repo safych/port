@@ -1,10 +1,10 @@
 class CargoesController < ApplicationController
-  def index
+  def new
 
   end
 
   def create
-
+    redirect_to cargoes_path
   end
 
   def edit
