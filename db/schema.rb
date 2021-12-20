@@ -10,23 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_19_213420) do
+ActiveRecord::Schema.define(version: 2021_12_20_165045) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "cargoes", force: :cascade do |t|
     t.string "name", null: false
     t.string "value", null: false
     t.integer "mass", null: false
     t.integer "reg_number", null: false
-    t.integer "route_id"
+    t.bigint "route_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["route_id"], name: "index_cargoes_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
-    t.integer "ship_id"
-    t.integer "from_port_id"
-    t.integer "to_port_id"
+    t.bigint "ship_id"
+    t.bigint "from_port_id"
+    t.bigint "to_port_id"
     t.time "departure_time"
     t.time "arrival_time"
     t.datetime "created_at", precision: 6, null: false
