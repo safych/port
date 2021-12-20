@@ -1,0 +1,35 @@
+<div class="page">
+  <main>
+    <center><h1>Виведення данних про порти</h1></center>
+    <table border="1">
+      <tr>
+       <th>Id</th>
+       <th>Назва порту</th>
+       <th>Місце розташування</th>
+      </tr>
+      <% @ports.each do |port| %>
+      <tr>
+        <td><%= port.id %></td><td><%= port.name %></td>
+        <td><%= port.location %></td>
+        <td><%= link_to 'Редагувати', edit_ship_port_path(port) %></td>
+        <td><%= link_to 'Видалити', ship_port_path(port), method: :delete %></td>
+      </tr>
+      <% end %>
+    </table>
+    <h3>Сортування за назвою</h3>
+    <%= form_with url: ship_ports_path, method: :get do |f| %>
+      <div><%= f.select :sort, ['від а до я', 'від я до а'] %></div>
+      <br>
+      <%= submit_tag 'Сортувати' %>
+    <% end %>
+    <h3>Пошук за назвою порту</h3>
+    <%= form_with url: ship_ports_path, method: :get do |f| %>
+      <%= f.label :search_name, "Назва порту" %>
+      <div><%= f.text_field :search_name %></div>
+      <br>
+      <%= submit_tag 'Пошук' %>
+    <% end %>
+    <br>
+    <%= link_to 'Додати порт', new_ship_port_path %>
+  </main>
+</div>

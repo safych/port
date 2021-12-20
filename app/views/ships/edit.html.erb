@@ -1,0 +1,10 @@
+<h3>Змінити корабель №<%= @ship.id %></h3>
+<%= form_for @ship, method: :patch do |f| %>
+  <%= f.label :reg_number, "Реєстраційний номер" %>
+  <div><%= f.number_field :reg_number %></div>
+  <%= f.label :name, "Назва корабля" %>
+  <div><%= f.text_field :name %></div>
+  <%= f.label :load_capacity, "Вантажопідйомність" %>
+  <div><%= f.number_field :load_capacity %></div>
+  <div><%= f.submit 'Зберегти' %></div>
+<% end %>

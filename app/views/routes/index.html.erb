@@ -1,11 +1,27 @@
 <div class="page">
   <main>
     <center><h1>Виведення данних про маршрути</h1></center>
-    <ul>
-      <li>
-        Інфа
-      </li>
-    </ul>
-    <%= link_to 'Додати', "../routes/new" %>
+    <table border="1">
+      <tr>
+       <th>Id</th>
+       <th>Назва корабля</th>
+       <th>Назва порту відправки</th>
+       <th>Назва порту призначення</th>
+       <th>Дата відправки</th>
+       <th>Дата призначення</th>
+      </tr>
+      <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.id %></td><td><%= route.ship.name %></td>
+        <td><%= route.from_port.name %></td><td><%= route.to_port.name %></td>
+        <td><%= route.departure_time.strftime("%H:%M") %></td>
+        <td><%= route.arrival_time.strftime("%H:%M") %></td>
+        <td><%= link_to 'Редагувати', edit_route_path(route) %></td>
+        <td><%= link_to 'Видалити', route_path(route), method: :delete %></td>
+      </tr>
+      <% end %>
+      </table>
+      <br>
+      <%= link_to 'Додати', "../routes/new" %>
   </main>
 </div>

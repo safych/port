@@ -6,17 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
     <header>
       <%= link_to 'Гловна', "../" %>
-      <%= link_to 'Вантажі', "../cargoes/" %>
-      <%= link_to 'Порти', "../ports/" %>
-      <%= link_to "Маршрути", "../routes/" %>
-      <%= link_to "Кораблі", "../ships/" %>
+      <%= link_to 'Вантажі', cargoes_path %>
+      <%= link_to 'Порти', ship_ports_path %>
+      <%= link_to "Маршрути", routes_path %>
+      <%= link_to "Кораблі", ships_path %>
     </header>
     <%= yield %>
   </body>

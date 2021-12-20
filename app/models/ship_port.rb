@@ -1,0 +1,2 @@
+class ShipPort < ApplicationRecord
+end

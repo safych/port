@@ -1,6 +1,16 @@
 <div class="page">
   <center><h1>Введіть данні про маршрут</h1></center>
-  <%= form_for :route, url: "../routes/" do |f| %>
-    <div><%= f.submit 'Додати' %></div>
+  <%= form_for :route, url: routes_path do |f| %>
+    <%= f.label :ship_id, "Код корабля" %>
+    <div><%= f.select(:ship_id, Ship.all.collect { |ship| [ship.name, ship.id] }, html_options: { style: { width: '100px' } }) %></div>
+    <%= f.label :from_port_id, "Код порту відправки" %>
+    <div><%= f.select(:from_port_id, ShipPort.all.collect { |ship| [ship.name, ship.id] }) %></div>
+    <%= f.label :to_port_id, "Код порту призначення" %>
+    <div><%= f.select(:to_port_id, ShipPort.all.collect { |ship| [ship.name, ship.id] }) %></div>
+    <%= f.label :departure_time, "Дата відпливу" %>
+    <div><%= f.time_field :departure_time %></div>
+    <%= f.label :arrival_time, "Дата прибування" %>
+    <div><%= f.time_field :arrival_time %></div>
+    <div><%= f.submit "Додати" %></div>
   <% end %>
 </div>

@@ -2,16 +2,17 @@
   <main>
     <center><h1>Введіть данні про вантаж</h1></center>
     <%= form_for :cargoe, url: cargoes_path do |f| %>
-      <%= f.label :id_route, "Код маршруту" %>
-      <div><%= f.text_field :id_route %></div>
       <%= f.label :name, "Назва вантажу" %>
       <div><%= f.text_field :name %></div>
       <%= f.label :value, "Цінність вантажу" %>
-      <div><%= f.text_field :value %></div>
+      <div><%= f.select :value, ['мінімальна', 'комфорт', 'висока'] %></div>
       <%= f.label :mass, "Маса" %>
-      <div><%= f.text_field :mass %></div>
+      <div><%= f.number_field :mass %></div>
       <%= f.label :reg_number, "Реєстраційний номер" %>
-      <div><%= f.text_field :reg_number %></div>
+      <div><%= f.number_field :reg_number %></div>
+      <%= f.label :reg_number, "Id маршруту" %>
+      <div><%= f.select(:route_id, Route.all.collect { |route| [route.id] }) %></div>
+      <br>
       <div><%= f.submit "Додати" %></div>
     <% end %>
   </main>

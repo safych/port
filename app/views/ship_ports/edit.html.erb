@@ -1,0 +1,8 @@
+<h3>Змінити порт №<%= @port.id %></h3>
+<%= form_for @port, method: :patch do |f| %>
+<%= f.label :name, "Назва порту" %>
+<div><%= f.text_field :name %></div>
+<%= f.label :location, "Місце розміщення" %>
+<div><%= f.text_field :location %></div>
+  <div><%= f.submit 'Зберегти' %></div>
+<% end %>

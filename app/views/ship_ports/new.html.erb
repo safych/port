@@ -1,6 +1,6 @@
 <div class="page">
   <center><h1>Введіть данні про порт</h1></center>
-  <%= form_for :port, url: ports_path do |f| %>
+  <%= form_for ShipPort.new do |f| %>
     <%= f.label :name, "Назва порту" %>
     <div><%= f.text_field :name %></div>
     <%= f.label :location, "Місце розміщення" %>

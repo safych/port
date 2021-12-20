@@ -1,0 +1,14 @@
+<h3>Змінити вантажу №<%= @cargoe.id %></h3>
+<%= form_for @cargoe, method: :patch do |f| %>
+  <%= f.label :name, "Назва вантажу" %>
+  <div><%= f.text_field :name %></div>
+  <%= f.label :value, "Цінність вантажу" %>
+  <div><%= f.select :value, ['мінімальна', 'комфорт', 'висока'] %></div>
+  <%= f.label :mass, "Маса" %>
+  <div><%= f.number_field :mass %></div>
+  <%= f.label :reg_number, "Реєстраційний номер" %>
+  <div><%= f.number_field :reg_number %></div>
+  <%= f.label :reg_number, "Id маршруту" %>
+  <div><%= f.select(:route_id, Route.all.collect { |route| [route.id] }) %></div>
+  <div><%= f.submit 'Зберегти' %></div>
+<% end %>

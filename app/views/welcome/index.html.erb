@@ -1,5 +1,25 @@
 <div class="page">
   <main>
     <center><h1>Робота з базою даних порти</h1></center>
+    <center><h3>Кругова діаграма</h3></center>
+    <div>
+      <%= pie_chart({ "Кораблі" => @ships, "Маршрути" => @routes,
+                      "Вантажі" => @cargoes, "Порти" => @ports }) %>
+    </div>
+    <center><h3>Лінійна діаграма</h3></center>
+    <div>
+      <%= line_chart({ "Кораблі" => @ships, "Маршрути" => @routes,
+                      "Вантажі" => @cargoes, "Порти" => @ports }) %>
+    </div>
+    <center><h3>Стопчикова діаграма</h3></center>
+    <div>
+      <%= column_chart({ "Кораблі" => @ships, "Маршрути" => @routes,
+                      "Вантажі" => @cargoes, "Порти" => @ports }) %>
+    </div>
+    <center><h3>Гістограма</h3></center>
+    <div>
+      <%= bar_chart({ "Кораблі" => @ships, "Маршрути" => @routes,
+                      "Вантажі" => @cargoes, "Порти" => @ports }) %>
+    </div>
   </main>
 </div>

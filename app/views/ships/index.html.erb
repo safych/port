@@ -1,11 +1,36 @@
 <div class="page">
   <main>
     <center><h1>Виведення данних про кораблі</h1></center>
-    <ul>
-      <li>
-        Інфа
-      </li>
-    </ul>
+    <table border="1">
+      <tr>
+       <th>Id</th>
+       <th>Реєстраційний номер</th>
+       <th>Назва корабля</th>
+       <th>Вантажопідйомність в кг</th>
+      </tr>
+      <% @ships.each do |ship| %>
+        <tr>
+          <td><%= ship.id %></td><td><%= ship.reg_number %></td>
+          <td><%= ship.name %></td><td><%= ship.load_capacity %></td>
+          <td><%= link_to 'Редагувати', edit_ship_path(ship) %></td>
+          <td><%= link_to 'Видалити', ship_path(ship), method: :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+    <h3>Сортування за назвою корабля</h3>
+    <%= form_with url: "../ships/", method: :get do |f| %>
+      <div><%= f.select :sort, ['від а до я', 'від я до а'] %></div>
+      <br>
+      <%= submit_tag 'Сортувати' %>
+    <% end %>
+    <h3>Пошук за назвою корабля</h3>
+    <%= form_with url: "../ships/", method: :get do |f| %>
+      <%= f.label :search_name, "Назва корабля" %>
+      <div><%= f.text_field :search_name %></div>
+      <br>
+      <%= submit_tag 'Пошук' %>
+    <% end %>
+    <br>
     <%= link_to 'Додати', "../ships/new" %>
   </main>
 </div>

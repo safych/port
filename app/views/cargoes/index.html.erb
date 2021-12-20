@@ -1,11 +1,45 @@
 <div class="page">
   <main>
-    <center><h1>Виведення данних про вантаж</h1></center>
-    <ul>
-      <li>
-        Інфа
-      </li>
-    </ul>
+    <center><h1>Виведення данних про вантажі</h1></center>
+    <table border="1">
+      <tr>
+       <th>Id</th>
+       <th>Назва вантажу</th>
+       <th>Цінність</th>
+       <th>Маса</th>
+       <th>Реєстраційний номер</th>
+       <th>Id маршруту</th>
+      </tr>
+      <% @cargoes.each do |cargoe| %>
+      <tr>
+        <td><%= cargoe.id %></td><td><%= cargoe.name %></td>
+        <td><%= cargoe.value %></td><td><%= cargoe.mass %></td>
+        <td><%= cargoe.reg_number %></td><td><%= cargoe.route.id %></td>
+        <td><%= link_to 'Редагувати', edit_cargo_path(cargoe) %></td>
+        <td><%= link_to 'Видалити', cargo_path(cargoe), method: :delete %></td>
+      </tr>
+      <% end %>
+    </table>
+    <h3>Сортування</h3>
+    <%= form_with url: cargoes_path, method: :get do |f| %>
+      <div><%= f.select :sort, ['назва(від а до я)', 'назва(від я до а)',
+                                'від нецінного', 'від цінного',
+                                'від легшого', 'від важчого'] %>
+      </div>
+      <br>
+      <%= submit_tag 'Сортувати' %>
+    <% end %>
+    <h3>Пошук за:</h3>
+    <%= form_with url: cargoes_path, method: :get do |f| %>
+    <div><%= f.select :search_for, ['назвою', 'цінністю',
+                              'масою', 'реєстраційним номером'] %>
+    </div>
+      <%= f.label :search, "Назва вантажу" %>
+      <div><%= f.text_field :search %></div>
+      <br>
+      <%= submit_tag 'Пошук' %>
+    <% end %>
+    <br>
     <%= link_to 'Додати', "../cargoes/new" %>
   </main>
 </div>
